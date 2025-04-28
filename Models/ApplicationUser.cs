@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OmarShop.Models
 {
@@ -11,6 +12,9 @@ namespace OmarShop.Models
 
         [PersonalData]
         public string? ProfilePicture { get; set; }
+
+        [NotMapped]
+        public IList<string>? Roles { get; set; }
 
         // Navigation properties
         public virtual ICollection<Order>? Orders { get; set; }

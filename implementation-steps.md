@@ -49,7 +49,7 @@
   - Build order listing view with filtering
   - Create order details view
   - Implement order status update functionality
-- [ ] User Management (optional):
+- [x] User Management (optional):
   - Create UserController for admin
   - Build user listing view
   - Add user role management
