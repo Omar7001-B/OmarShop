@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Http;
 
 namespace OmarShop.Models
 {
@@ -23,6 +25,10 @@ namespace OmarShop.Models
         public int StockQuantity { get; set; }
 
         public string? ImageUrl { get; set; }
+
+        [NotMapped]
+        [Display(Name = "Upload Image")]
+        public IFormFile? ImageFile { get; set; }
 
         // Navigation properties
         public virtual ICollection<OrderItem>? OrderItems { get; set; }
