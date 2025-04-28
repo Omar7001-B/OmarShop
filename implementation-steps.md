@@ -9,8 +9,8 @@
   - Microsoft.EntityFrameworkCore.Tools
   - Microsoft.AspNetCore.Identity.EntityFrameworkCore
   - Microsoft.AspNetCore.Identity.UI
-- [ ] Configure static file middleware for wwwroot folder
-- [ ] Create folder structure for uploads/images
+- [x] Configure static file middleware for wwwroot folder
+- [x] Create folder structure for uploads/images
 
 ## 2. Database and Models
 - [ ] Create model classes:
