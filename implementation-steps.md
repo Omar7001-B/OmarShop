@@ -26,19 +26,19 @@
 - [x] Add seed data for testing (admin user, sample products)
 
 ## 3. Authentication System
-- [ ] Configure ASP.NET Identity in Program.cs
-- [ ] Create Account controller with actions:
+- [x] Configure ASP.NET Identity in Program.cs
+- [x] Create Account controller with actions:
   - Register
   - Login
   - Logout
   - AccessDenied
-- [ ] Implement corresponding views for authentication
-- [ ] Set up role initialization (Admin and Customer roles)
-- [ ] Add authorization policies for different areas
-- [ ] Create admin user seeding process
+- [x] Implement corresponding views for authentication
+- [x] Set up role initialization (Admin and Customer roles)
+- [x] Add authorization policies for different areas
+- [x] Create admin user seeding process
 
 ## 4. Admin Features
-- [ ] Create Admin area structure
+- [x] Create Admin area structure
 - [ ] Implement Product Management:
   - Create ProductController with CRUD actions
   - Build product listing view with pagination

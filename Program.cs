@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OmarShop.Data;
 using OmarShop.Models;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,17 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => {
 })
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+// Add authorization policies
+builder.Services.AddAuthorization(options =>
+{
+    // Policy for admin area
+    options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+    
+    // Policy for customer features
+    options.AddPolicy("RequireCustomerRole", policy => policy.RequireRole("Customer", "Admin"));
+});
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -40,8 +52,13 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+    
 app.MapRazorPages();
 
 // Seed the database
