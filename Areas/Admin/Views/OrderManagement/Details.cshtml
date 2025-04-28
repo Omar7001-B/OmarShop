@@ -81,11 +81,50 @@
                         <div class="mb-3">
                             <label for="status" class="form-label">New Status</label>
                             <select name="status" id="status" class="form-select">
-                                <option value="Pending" @(Model.Status == "Pending" ? "selected" : "")>Pending</option>
-                                <option value="Processing" @(Model.Status == "Processing" ? "selected" : "")>Processing</option>
-                                <option value="Shipped" @(Model.Status == "Shipped" ? "selected" : "")>Shipped</option>
-                                <option value="Delivered" @(Model.Status == "Delivered" ? "selected" : "")>Delivered</option>
-                                <option value="Cancelled" @(Model.Status == "Cancelled" ? "selected" : "")>Cancelled</option>
+                                @if (Model.Status == "Pending")
+                                {
+                                    <option value="Pending" selected>Pending</option>
+                                }
+                                else
+                                {
+                                    <option value="Pending">Pending</option>
+                                }
+                                
+                                @if (Model.Status == "Processing")
+                                {
+                                    <option value="Processing" selected>Processing</option>
+                                }
+                                else
+                                {
+                                    <option value="Processing">Processing</option>
+                                }
+                                
+                                @if (Model.Status == "Shipped")
+                                {
+                                    <option value="Shipped" selected>Shipped</option>
+                                }
+                                else
+                                {
+                                    <option value="Shipped">Shipped</option>
+                                }
+                                
+                                @if (Model.Status == "Delivered")
+                                {
+                                    <option value="Delivered" selected>Delivered</option>
+                                }
+                                else
+                                {
+                                    <option value="Delivered">Delivered</option>
+                                }
+                                
+                                @if (Model.Status == "Cancelled")
+                                {
+                                    <option value="Cancelled" selected>Cancelled</option>
+                                }
+                                else
+                                {
+                                    <option value="Cancelled">Cancelled</option>
+                                }
                             </select>
                         </div>
                         
