@@ -2,8 +2,8 @@
 
 ## 1. Project Setup
 - [x] Create new ASP.NET MVC project in Visual Studio 2022
-- [ ] Set up SQL Server LocalDB connection in appsettings.json
-- [ ] Install required NuGet packages:
+- [x] Set up SQL Server LocalDB connection in appsettings.json
+- [x] Install required NuGet packages:
   - Microsoft.EntityFrameworkCore
   - Microsoft.EntityFrameworkCore.SqlServer
   - Microsoft.EntityFrameworkCore.Tools
