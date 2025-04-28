@@ -36,6 +36,8 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
+    // Enable developer exception page for better debugging
+    app.UseDeveloperExceptionPage();
 }
 else
 {
@@ -52,11 +54,16 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Admin area route
-app.MapAreaControllerRoute(
-    name: "Admin",
-    areaName: "Admin",
-    pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
+// Admin area route with Dashboard controller
+app.MapControllerRoute(
+    name: "AdminDashboard",
+    pattern: "Admin",
+    defaults: new { area = "Admin", controller = "Dashboard", action = "Index" });
+
+// Admin area general route
+app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
 
 // Default route
 app.MapControllerRoute(
