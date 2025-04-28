@@ -13,14 +13,14 @@
 - [x] Create folder structure for uploads/images
 
 ## 2. Database and Models
-- [ ] Create model classes:
+- [x] Create model classes:
   - ApplicationUser (extending IdentityUser)
   - Product
   - Order
   - OrderItem
   - CartItem
-- [ ] Set up ApplicationDbContext with entity configurations
-- [ ] Configure relationships between entities
+- [x] Set up ApplicationDbContext with entity configurations
+- [x] Configure relationships between entities
 - [ ] Create initial migration
 - [ ] Apply migration to create database
 - [ ] Add seed data for testing (admin user, sample products)
