@@ -21,9 +21,9 @@
   - CartItem
 - [x] Set up ApplicationDbContext with entity configurations
 - [x] Configure relationships between entities
-- [ ] Create initial migration
-- [ ] Apply migration to create database
-- [ ] Add seed data for testing (admin user, sample products)
+- [x] Create initial migration
+- [x] Apply migration to create database
+- [x] Add seed data for testing (admin user, sample products)
 
 ## 3. Authentication System
 - [ ] Configure ASP.NET Identity in Program.cs
