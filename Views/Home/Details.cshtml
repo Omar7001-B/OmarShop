@@ -84,14 +84,45 @@
 
 @section Scripts {
     <script>
-        // For future implementation: Add to cart functionality will be added here
         $(document).ready(function() {
             $('.add-to-cart').click(function(e) {
                 e.preventDefault();
                 var productId = $(this).data('id');
-                var quantity = $('#quantity').val();
-                // The cart functionality will be implemented in a later step
-                alert('Add to cart functionality will be implemented in a future step.');
+                var quantity = parseInt($('#quantity').val());
+                
+                if (quantity <= 0) {
+                    alert('Please select a valid quantity.');
+                    return;
+                }
+                
+                $.ajax({
+                    url: '@Url.Action("AddToCart", "Cart")',
+                    type: 'POST',
+                    data: { productId: productId, quantity: quantity },
+                    success: function(response) {
+                        // Update the cart count
+                        updateCartCount();
+                        
+                        // Show success message
+                        var alertHtml = '<div class="alert alert-success alert-dismissible fade show" role="alert">' +
+                            'Product added to cart successfully! <a href="@Url.Action("Index", "Cart")">View Cart</a>' +
+                            '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
+                            '</div>';
+                        
+                        // Insert alert at the top of the container
+                        $('.container').prepend(alertHtml);
+                        
+                        // Auto-close alert after 5 seconds
+                        window.setTimeout(function() {
+                            $(".alert").fadeTo(500, 0).slideUp(500, function() {
+                                $(this).remove();
+                            });
+                        }, 5000);
+                    },
+                    error: function() {
+                        alert('Error adding to cart. Please try again.');
+                    }
+                });
             });
         });
     </script>

@@ -43,10 +43,10 @@
                         }
                     </ul>
                     <div class="d-flex">
-                        <!-- Cart button placeholder - will be implemented in a future step -->
-                        <a class="btn btn-outline-light me-2" href="#">
+                        <!-- Cart button with item count -->
+                        <a class="btn btn-outline-light me-2" asp-controller="Cart" asp-action="Index" id="cart-button">
                             <i class="fas fa-shopping-cart me-1"></i>Cart
-                            <span class="badge bg-danger">0</span>
+                            <span class="badge bg-danger" id="cart-count">0</span>
                         </a>
                         <partial name="_LoginPartial" />
                     </div>
@@ -77,6 +77,43 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    <!-- Cart Summary Script -->
+    <script>
+        $(document).ready(function() {
+            // Function to update cart count
+            function updateCartCount() {
+                $.ajax({
+                    url: '@Url.Action("CartSummary", "Cart")',
+                    type: 'GET',
+                    success: function(data) {
+                        $('#cart-count').text(data.itemCount);
+                    }
+                });
+            }
+
+            // Update cart count on page load
+            updateCartCount();
+
+            // Handle add to cart buttons on the page
+            $('.add-to-cart').click(function(e) {
+                e.preventDefault();
+                var productId = $(this).data('id');
+                var quantity = parseInt($('#quantity').val() || 1);
+
+                $.ajax({
+                    url: '@Url.Action("AddToCart", "Cart")',
+                    type: 'POST',
+                    data: { productId: productId, quantity: quantity },
+                    success: function(response) {
+                        updateCartCount();
+                        alert('Product added to cart!');
+                    }
+                });
+            });
+        });
+    </script>
+    
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
