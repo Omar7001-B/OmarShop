@@ -58,7 +58,7 @@
 ## 5. User Features
 - [x] Create HomeController for product catalog
 - [x] Implement product listing with filtering/search
-- [ ] Create ProductDetailsController/action for product details
+- [x] Create ProductDetailsController/action for product details
 - [ ] Shopping Cart Implementation:
   - Create CartController
   - Build cart view with item management

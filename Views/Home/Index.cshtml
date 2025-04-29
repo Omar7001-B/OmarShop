@@ -66,7 +66,9 @@
                         </div>
                         <div class="card-footer">
                             <div class="d-grid gap-2">
-                                <a href="#" class="btn btn-outline-primary">View Details</a>
+                                <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-outline-primary">
+                                    <i class="fas fa-info-circle me-1"></i> View Details
+                                </a>
                                 @if (product.StockQuantity > 0)
                                 {
                                     <button type="button" class="btn btn-primary add-to-cart" data-id="@product.Id">
