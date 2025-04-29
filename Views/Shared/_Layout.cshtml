@@ -7,12 +7,15 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/OmarShop.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">OmarShop</a>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="fas fa-shopping-bag me-2"></i>OmarShop
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,13 +23,33 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-home me-1"></i>Home
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                <i class="fas fa-lock me-1"></i>Privacy
+                            </a>
                         </li>
+                        <!-- Admin Area link will only be visible to admins when we implement authorization -->
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
+                                    <i class="fas fa-cog me-1"></i>Admin Area
+                                </a>
+                            </li>
+                        }
                     </ul>
-                    <partial name="_LoginPartial" />
+                    <div class="d-flex">
+                        <!-- Cart button placeholder - will be implemented in a future step -->
+                        <a class="btn btn-outline-light me-2" href="#">
+                            <i class="fas fa-shopping-cart me-1"></i>Cart
+                            <span class="badge bg-danger">0</span>
+                        </a>
+                        <partial name="_LoginPartial" />
+                    </div>
                 </div>
             </div>
         </nav>
@@ -37,9 +60,18 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - OmarShop - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="border-top footer text-muted bg-dark py-3 mt-4">
+        <div class="container text-light">
+            <div class="row">
+                <div class="col-md-6">
+                    &copy; 2025 - OmarShop - <a class="text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-light me-2"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-light me-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-light me-2"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -56,8 +56,8 @@
 - [x] Fix Admin layout rendering issue by updating ViewStart with correct path
 
 ## 5. User Features
-- [ ] Create HomeController for product catalog
-- [ ] Implement product listing with filtering/search
+- [x] Create HomeController for product catalog
+- [x] Implement product listing with filtering/search
 - [ ] Create ProductDetailsController/action for product details
 - [ ] Shopping Cart Implementation:
   - Create CartController
