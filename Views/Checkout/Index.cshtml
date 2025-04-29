@@ -102,7 +102,7 @@
                                 <span asp-validation-for="AddressLine2" class="text-danger"></span>
                             </div>
                             
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <label asp-for="City" class="form-label"></label>
                                 <input asp-for="City" class="form-control" />
                                 <span asp-validation-for="City" class="text-danger"></span>
@@ -114,7 +114,7 @@
                                 <span asp-validation-for="State" class="text-danger"></span>
                             </div>
                             
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <label asp-for="PostalCode" class="form-label"></label>
                                 <input asp-for="PostalCode" class="form-control" />
                                 <span asp-validation-for="PostalCode" class="text-danger"></span>
@@ -123,7 +123,8 @@
                             <div class="col-12">
                                 <label asp-for="Country" class="form-label"></label>
                                 <select asp-for="Country" class="form-select">
-                                    <option value="Egypt" selected>Egypt</option>
+                                    <option value="">Select a country</option>
+                                    <option value="Egypt">Egypt</option>
                                     <option value="United States">United States</option>
                                     <option value="Canada">Canada</option>
                                     <option value="Mexico">Mexico</option>
