@@ -10,18 +10,18 @@ namespace OmarShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Policy = "RequireAdminRole")]
-    public class UserController : Controller
+    public class UsersController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
-        public UserController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public UsersController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
         }
 
-        // GET: Admin/User
+        // GET: Admin/Users
         public async Task<IActionResult> Index(int page = 1)
         {
             int pageSize = 10;
@@ -43,7 +43,7 @@ namespace OmarShop.Areas.Admin.Controllers
             return View(users);
         }
 
-        // GET: Admin/User/Details/5
+        // GET: Admin/Users/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -62,7 +62,7 @@ namespace OmarShop.Areas.Admin.Controllers
             return View(user);
         }
 
-        // GET: Admin/User/Edit/5
+        // GET: Admin/Users/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -82,7 +82,7 @@ namespace OmarShop.Areas.Admin.Controllers
             return View(user);
         }
 
-        // POST: Admin/User/Edit/5
+        // POST: Admin/Users/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, ApplicationUser model, string[] selectedRoles)
@@ -140,7 +140,7 @@ namespace OmarShop.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: Admin/User/Delete/5
+        // GET: Admin/Users/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -159,7 +159,7 @@ namespace OmarShop.Areas.Admin.Controllers
             return View(user);
         }
 
-        // POST: Admin/User/Delete/5
+        // POST: Admin/Users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
