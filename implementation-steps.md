@@ -64,11 +64,11 @@
   - [x] Build cart view with item management
   - [x] Implement add to cart functionality
   - [x] Create cart summary component
-- [ ] Checkout Process:
-  - Create CheckoutController
-  - Build checkout form with validation
-  - Implement order creation
-  - Create order confirmation page
+- [x] Checkout Process:
+  - [x] Create CheckoutController
+  - [x] Build checkout form with validation
+  - [x] Implement order creation
+  - [x] Create order confirmation page
 - [ ] User Profile:
   - Create ProfileController
   - Build profile edit form

@@ -1,0 +1,99 @@
+@model OmarShop.Models.Order
+
+@{
+    ViewData["Title"] = "Order Confirmation";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-success">
+                <div class="card-header bg-success text-white">
+                    <h2 class="mb-0"><i class="fas fa-check-circle me-2"></i> Order Confirmed!</h2>
+                </div>
+                <div class="card-body">
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success mb-4">
+                            @TempData["Success"]
+                        </div>
+                    }
+                    
+                    <h4 class="mb-3">Thank you for your order!</h4>
+                    
+                    <p>Your order has been received and is now being processed. Your order details are shown below for your reference:</p>
+                    
+                    <div class="card mb-4">
+                        <div class="card-header bg-light">
+                            <h5 class="mb-0">Order Information</h5>
+                        </div>
+                        <div class="card-body">
+                            <dl class="row">
+                                <dt class="col-sm-4">Order Number:</dt>
+                                <dd class="col-sm-8">#@Model.Id</dd>
+                                
+                                <dt class="col-sm-4">Order Date:</dt>
+                                <dd class="col-sm-8">@Model.OrderDate.ToString("MMM dd, yyyy HH:mm")</dd>
+                                
+                                <dt class="col-sm-4">Order Status:</dt>
+                                <dd class="col-sm-8">
+                                    <span class="badge bg-info">@Model.Status</span>
+                                </dd>
+                                
+                                <dt class="col-sm-4">Total:</dt>
+                                <dd class="col-sm-8">@Model.TotalPrice.ToString("C")</dd>
+                            </dl>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-4">
+                        <div class="card-header bg-light">
+                            <h5 class="mb-0">Order Items</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th class="text-end">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.OrderItems)
+                                        {
+                                            <tr>
+                                                <td>@item.ProductName</td>
+                                                <td>@item.ProductPrice.ToString("C")</td>
+                                                <td>@item.Quantity</td>
+                                                <td class="text-end">@((item.ProductPrice * item.Quantity).ToString("C"))</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="3" class="text-end">Total:</th>
+                                            <th class="text-end">@Model.TotalPrice.ToString("C")</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info" role="alert">
+                        <i class="fas fa-info-circle me-2"></i> A confirmation email has been sent to your email address. Please check your inbox.
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-4">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-primary">
+                            <i class="fas fa-home me-1"></i> Return to Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
