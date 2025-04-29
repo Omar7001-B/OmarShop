@@ -60,10 +60,10 @@
 - [x] Implement product listing with filtering/search
 - [x] Create ProductDetailsController/action for product details
 - [x] Shopping Cart Implementation:
-  - Create CartController
-  - Build cart view with item management
-  - Implement add to cart functionality
-  - Create cart summary component
+  - [x] Create CartController
+  - [x] Build cart view with item management
+  - [x] Implement add to cart functionality
+  - [x] Create cart summary component
 - [ ] Checkout Process:
   - Create CheckoutController
   - Build checkout form with validation
