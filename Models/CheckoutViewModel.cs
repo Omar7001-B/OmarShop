@@ -47,7 +47,7 @@ namespace OmarShop.Models
         [Required]
         [Display(Name = "Country")]
         [StringLength(50, MinimumLength = 2)]
-        public string Country { get; set; } = string.Empty;
+        public string Country { get; set; } = "Egypt";
 
         // Order notes
         [Display(Name = "Order Notes")]
