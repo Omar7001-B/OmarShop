@@ -75,6 +75,12 @@ namespace OmarShop.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> PlaceOrder(CheckoutViewModel model)
         {
+            // Ensure Country has a value before validation
+            if (string.IsNullOrEmpty(model.Country))
+            {
+                model.Country = "Egypt";
+            }
+            
             if (!ModelState.IsValid)
             {
                 // If model validation fails, reload the cart items
