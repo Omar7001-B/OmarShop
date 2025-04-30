@@ -122,7 +122,11 @@
                             
                             <div class="col-12">
                                 <label asp-for="Country" class="form-label"></label>
-                                <select asp-for="Country" class="form-select" required>
+                                <!-- Hide the model-bound dropdown to avoid validation issues -->
+                                <input asp-for="Country" type="hidden" value="Egypt" />
+                                
+                                <!-- Manual dropdown that updates the hidden field -->
+                                <select id="CountryDropdown" class="form-select" onchange="document.getElementById('Country').value = this.value">
                                     <option value="Egypt">Egypt</option>
                                     <option value="United States">United States</option>
                                     <option value="Canada">Canada</option>
