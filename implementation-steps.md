@@ -69,11 +69,11 @@
   - [x] Build checkout form with validation
   - [x] Implement order creation
   - [x] Create order confirmation page
-- [ ] User Profile:
-  - Create ProfileController
-  - Build profile edit form
-  - Implement password change
-  - Add profile picture upload
+- [x] User Profile:
+  - [x] Create ProfileController
+  - [x] Build profile edit form
+  - [x] Implement password change
+  - [x] Add profile picture upload
 
 ## 6. Frontend Development
 - [ ] Set up _Layout.cshtml with Bootstrap
