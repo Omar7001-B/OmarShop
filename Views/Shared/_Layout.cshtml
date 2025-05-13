@@ -168,6 +168,21 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     
+    <!-- Handle broken image links -->
+    <script>
+        $(document).ready(function() {
+            // Replace broken product images with default image
+            $('img').on('error', function() {
+                // Check if this is a product image (by looking at its context or classes)
+                // For simplicity, we're replacing all broken images with the product image
+                $(this).attr('src', '/images/no-product-image.png');
+                
+                // Log for debugging
+                console.log('Replaced broken image: ' + $(this).attr('alt'));
+            });
+        });
+    </script>
+    
     <!-- Cart Summary Script -->
     <script>
         $(document).ready(function() {

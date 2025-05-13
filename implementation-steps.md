@@ -74,6 +74,7 @@
   - [x] Build profile edit form
   - [x] Implement password change
   - [x] Add profile picture upload
+- [x] Add default image for products with missing images
 
 ## 6. Frontend Development
 - [x] Set up _Layout.cshtml with Bootstrap
