@@ -34,7 +34,7 @@ namespace OmarShop.Data
                     Email = "admin@omarshop.com",
                     EmailConfirmed = true,
                     Name = "Admin User",
-                    ProfilePicture = "/uploads/images/default-product.jpg"
+                    ProfilePicture = "/images/no-user-image.png"
                 };
 
                 var result = await userManager.CreateAsync(adminUser, "Admin@123");
@@ -54,7 +54,7 @@ namespace OmarShop.Data
                     Email = "user@omarshop.com",
                     EmailConfirmed = true,
                     Name = "John Doe",
-                    ProfilePicture = "/uploads/images/default-product.jpg"
+                    ProfilePicture = "/images/no-user-image.png"
                 };
 
                 var result = await userManager.CreateAsync(normalUser, "User@123");
@@ -80,7 +80,7 @@ namespace OmarShop.Data
                         Description = "Latest smartphone with advanced features and high-resolution camera.",
                         Price = 799.99m,
                         StockQuantity = 50,
-                        ImageUrl = "/uploads/images/default-product.jpg"
+                        ImageUrl = "/images/no-product-image.png"
                     },
                     new Product
                     {
@@ -88,7 +88,7 @@ namespace OmarShop.Data
                         Description = "Powerful laptop for professionals with high performance and long battery life.",
                         Price = 1299.99m,
                         StockQuantity = 30,
-                        ImageUrl = "/uploads/images/default-product.jpg"
+                        ImageUrl = "/images/no-product-image.png"
                     },
                     new Product
                     {
@@ -96,7 +96,7 @@ namespace OmarShop.Data
                         Description = "Premium wireless headphones with noise cancellation and superior sound quality.",
                         Price = 199.99m,
                         StockQuantity = 100,
-                        ImageUrl = "/uploads/images/default-product.jpg"
+                        ImageUrl = "/images/no-product-image.png"
                     },
                     new Product
                     {
@@ -104,7 +104,7 @@ namespace OmarShop.Data
                         Description = "Feature-rich smartwatch with health tracking and notification capabilities.",
                         Price = 249.99m,
                         StockQuantity = 45,
-                        ImageUrl = "/uploads/images/default-product.jpg"
+                        ImageUrl = "/images/no-product-image.png"
                     },
                     new Product
                     {
@@ -112,7 +112,7 @@ namespace OmarShop.Data
                         Description = "Portable Bluetooth speaker with superior sound quality and long battery life.",
                         Price = 89.99m,
                         StockQuantity = 75,
-                        ImageUrl = "/uploads/images/default-product.jpg"
+                        ImageUrl = "/images/no-product-image.png"
                     }
                 };
 

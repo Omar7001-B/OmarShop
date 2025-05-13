@@ -91,7 +91,8 @@
                 var quantity = parseInt($('#quantity').val());
                 
                 if (quantity <= 0) {
-                    alert('Please select a valid quantity.');
+                    // Show error toast
+                    showToast('error', 'Error', 'Please select a valid quantity.');
                     return;
                 }
                 
@@ -103,34 +104,12 @@
                         // Update the cart count
                         updateCartCount();
                         
-                        // Show toast notification
-                        var toast = $('<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">')
-                            .append('<div class="toast-header bg-success text-white"><strong class="me-auto">Success</strong><button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button></div>')
-                            .append('<div class="toast-body">Product added to cart! <a href="@Url.Action("Index", "Cart")" class="text-decoration-none">View Cart</a></div>');
-                            
-                        $('#toastContainer').append(toast);
-                        var bsToast = new bootstrap.Toast(toast.get(0));
-                        bsToast.show();
-                        
-                        // Remove toast from DOM after it's hidden
-                        toast.on('hidden.bs.toast', function() {
-                            $(this).remove();
-                        });
+                        // Show success toast
+                        showToast('success', 'Success', 'Product added to cart successfully! <a href="@Url.Action("Index", "Cart")" class="text-decoration-none fw-bold">View Cart</a>');
                     },
                     error: function() {
-                        // Show error toast notification
-                        var toast = $('<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">')
-                            .append('<div class="toast-header bg-danger text-white"><strong class="me-auto">Error</strong><button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button></div>')
-                            .append('<div class="toast-body">Failed to add product to cart. Please try again.</div>');
-                            
-                        $('#toastContainer').append(toast);
-                        var bsToast = new bootstrap.Toast(toast.get(0));
-                        bsToast.show();
-                        
-                        // Remove toast from DOM after it's hidden
-                        toast.on('hidden.bs.toast', function() {
-                            $(this).remove();
-                        });
+                        // Show error toast
+                        showToast('error', 'Error', 'Failed to add product to cart. Please try again.');
                     }
                 });
             });

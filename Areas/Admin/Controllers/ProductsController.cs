@@ -98,7 +98,7 @@ namespace OmarShop.Areas.Admin.Controllers
                 else
                 {
                     // Set a default image if none provided
-                    product.ImageUrl = "/uploads/images/default-product.jpg";
+                    product.ImageUrl = "/images/no-product-image.png";
                 }
 
                 _context.Add(product);
@@ -171,7 +171,7 @@ namespace OmarShop.Areas.Admin.Controllers
                         
                         // Delete the old image if it exists and isn't the default
                         if (!string.IsNullOrEmpty(oldImageUrl) && 
-                            !oldImageUrl.Contains("default-product.jpg") && 
+                            !oldImageUrl.Contains("no-product-image.png") && 
                             System.IO.File.Exists(_webHostEnvironment.WebRootPath + oldImageUrl.Replace("/", "\\")))
                         {
                             System.IO.File.Delete(_webHostEnvironment.WebRootPath + oldImageUrl.Replace("/", "\\"));
@@ -234,7 +234,7 @@ namespace OmarShop.Areas.Admin.Controllers
             {
                 // Delete the image file if it exists and isn't the default
                 if (!string.IsNullOrEmpty(product.ImageUrl) && 
-                    !product.ImageUrl.Contains("default-product.jpg") && 
+                    !product.ImageUrl.Contains("no-product-image.png") && 
                     System.IO.File.Exists(_webHostEnvironment.WebRootPath + product.ImageUrl.Replace("/", "\\")))
                 {
                     System.IO.File.Delete(_webHostEnvironment.WebRootPath + product.ImageUrl.Replace("/", "\\"));
