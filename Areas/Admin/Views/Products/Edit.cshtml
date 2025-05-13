@@ -54,8 +54,8 @@
                         </div>
                         
                         <div class="text-center mt-3">
-                            <img id="imagePreview" src="@Model.ImageUrl" alt="@Model.Name"
-                                 style="max-height: 200px; max-width: 100%;" />
+                            <img id="imagePreview" src="@(string.IsNullOrEmpty(Model.ImageUrl) ? "/images/no-product-image.png" : Model.ImageUrl)" 
+                                 alt="@Model.Name" style="max-height: 200px; max-width: 100%;" />
                         </div>
                     </div>
                 </div>
