@@ -184,3 +184,22 @@ footer a:hover {
     height: 120px;
   }
 }
+
+.toast {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    opacity: 1 !important;
+    border: none;
+}
+
+.toast .toast-header {
+    border-bottom: none;
+    padding: 0.5rem 0.75rem;
+}
+
+.toast .toast-body {
+    padding: 0.75rem;
+}
+
+.toast a {
+    font-weight: 500;
+}

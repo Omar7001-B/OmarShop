@@ -103,24 +103,34 @@
                         // Update the cart count
                         updateCartCount();
                         
-                        // Show success message
-                        var alertHtml = '<div class="alert alert-success alert-dismissible fade show" role="alert">' +
-                            'Product added to cart successfully! <a href="@Url.Action("Index", "Cart")">View Cart</a>' +
-                            '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
-                            '</div>';
+                        // Show toast notification
+                        var toast = $('<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">')
+                            .append('<div class="toast-header bg-success text-white"><strong class="me-auto">Success</strong><button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button></div>')
+                            .append('<div class="toast-body">Product added to cart! <a href="@Url.Action("Index", "Cart")" class="text-decoration-none">View Cart</a></div>');
+                            
+                        $('#toastContainer').append(toast);
+                        var bsToast = new bootstrap.Toast(toast.get(0));
+                        bsToast.show();
                         
-                        // Insert alert at the top of the container
-                        $('.container').prepend(alertHtml);
-                        
-                        // Auto-close alert after 5 seconds
-                        window.setTimeout(function() {
-                            $(".alert").fadeTo(500, 0).slideUp(500, function() {
-                                $(this).remove();
-                            });
-                        }, 5000);
+                        // Remove toast from DOM after it's hidden
+                        toast.on('hidden.bs.toast', function() {
+                            $(this).remove();
+                        });
                     },
                     error: function() {
-                        alert('Error adding to cart. Please try again.');
+                        // Show error toast notification
+                        var toast = $('<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">')
+                            .append('<div class="toast-header bg-danger text-white"><strong class="me-auto">Error</strong><button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button></div>')
+                            .append('<div class="toast-body">Failed to add product to cart. Please try again.</div>');
+                            
+                        $('#toastContainer').append(toast);
+                        var bsToast = new bootstrap.Toast(toast.get(0));
+                        bsToast.show();
+                        
+                        // Remove toast from DOM after it's hidden
+                        toast.on('hidden.bs.toast', function() {
+                            $(this).remove();
+                        });
                     }
                 });
             });
