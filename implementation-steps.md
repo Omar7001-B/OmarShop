@@ -76,16 +76,16 @@
   - [x] Add profile picture upload
 
 ## 6. Frontend Development
-- [ ] Set up _Layout.cshtml with Bootstrap
-- [ ] Create responsive navigation based on user role
-- [ ] Implement client-side validation with jQuery
+- [x] Set up _Layout.cshtml with Bootstrap
+- [x] Create responsive navigation based on user role
+- [x] Implement client-side validation with jQuery
 - [ ] Add JavaScript for cart functionality:
   - Update quantities
   - Remove items
   - Calculate totals
 - [ ] Create product filtering/search with AJAX
-- [ ] Implement CSS styling for consistent UI
-- [ ] Add responsive design adjustments
+- [x] Implement CSS styling for consistent UI
+- [x] Add responsive design adjustments
 
 ## 7. Testing and Refinement
 - [ ] Test user registration and login
