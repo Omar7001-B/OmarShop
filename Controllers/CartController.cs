@@ -41,6 +41,14 @@ namespace OmarShop.Controllers
         [HttpPost]
         public async Task<IActionResult> AddToCart(int productId, int quantity = 1)
         {
+            // Check if user is authenticated
+            if (!User.Identity.IsAuthenticated)
+            {
+                // Return 401 Unauthorized status with a special code 
+                // that our JavaScript can recognize
+                return Json(new { success = false, requiresAuth = true });
+            }
+
             var product = await _context.Products.FindAsync(productId);
             if (product == null)
             {
@@ -74,8 +82,15 @@ namespace OmarShop.Controllers
             }
 
             SaveCartToSession(cart);
-            TempData["Success"] = $"{product.Name} has been added to your cart!";
             
+            // If it's an AJAX request
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return Json(new { success = true });
+            }
+            
+            // For non-AJAX requests
+            TempData["Success"] = $"{product.Name} has been added to your cart!";
             return RedirectToAction(nameof(Index));
         }
 

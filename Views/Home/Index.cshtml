@@ -186,29 +186,5 @@
 </div>
 
 @section Scripts {
-    <script>
-        $(document).ready(function() {
-            $('.add-to-cart').click(function(e) {
-                e.preventDefault();
-                var productId = $(this).data('id');
-                
-                $.ajax({
-                    url: '@Url.Action("AddToCart", "Cart")',
-                    type: 'POST',
-                    data: { productId: productId, quantity: 1 },
-                    success: function(response) {
-                        // Update the cart count
-                        updateCartCount();
-                        
-                        // Show success toast
-                        showToast('success', 'Success', 'Product added to cart successfully! <a href="@Url.Action("Index", "Cart")" class="text-decoration-none fw-bold">View Cart</a>');
-                    },
-                    error: function() {
-                        // Show error toast
-                        showToast('error', 'Error', 'Failed to add product to cart. Please try again.');
-                    }
-                });
-            });
-        });
-    </script>
+    <!-- No script needed here as the add-to-cart functionality is handled globally in _Layout.cshtml -->
 }

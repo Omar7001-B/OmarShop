@@ -52,3 +52,33 @@ function showToast(type, title, message) {
     
     return toast;
 }
+
+// Handle add to cart AJAX requests
+function handleAddToCart(productId, quantity = 1) {
+    $.ajax({
+        url: '/Cart/AddToCart',
+        type: 'POST',
+        data: { productId: productId, quantity: quantity },
+        success: function(response) {
+            if (response.success) {
+                // Update the cart count
+                updateCartCount();
+                
+                // Show success toast
+                showToast('success', 'Success', 'Product added to cart successfully! <a href="/Cart" class="text-decoration-none fw-bold">View Cart</a>');
+            } else if (response.requiresAuth) {
+                // User needs to log in
+                showToast('error', 'Authentication Required', 'Please <a href="/Identity/Account/Login?ReturnUrl=' + encodeURIComponent(window.location.pathname) + '" class="text-decoration-none fw-bold">log in</a> or <a href="/Identity/Account/Register?ReturnUrl=' + encodeURIComponent(window.location.pathname) + '" class="text-decoration-none fw-bold">register</a> to add items to your cart.');
+                
+                // Option to redirect after short delay
+                setTimeout(function() {
+                    window.location.href = '/Identity/Account/Login?ReturnUrl=' + encodeURIComponent(window.location.pathname);
+                }, 3000);
+            }
+        },
+        error: function() {
+            // Show error toast
+            showToast('error', 'Error', 'Failed to add product to cart. Please try again.');
+        }
+    });
+}
